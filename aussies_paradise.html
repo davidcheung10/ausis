@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aussies Paradise – Criadero Canino Ecuador</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --crema:#F0E8D0;
+  --crema2:#FAF5E9;
+  --crema3:#E4D8B8;
+  --verde:#1B3A2D;
+  --verde2:#254D3B;
+  --verde3:#2F6148;
+  --acento:#C8B560;
+  --acento2:#A8922A;
+  --text-dark:#1B3A2D;
+  --text-mid:#3A5244;
+  --text-soft:rgba(27,58,45,0.6);
+  --border:rgba(27,58,45,0.14);
+  --border-dark:rgba(27,58,45,0.22);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--crema2);color:var(--text-dark);overflow-x:hidden;line-height:1.6}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0.85rem 3.5rem;background:rgba(240,232,208,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.logo img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1.5px solid var(--border-dark)}
+.logo-text{display:flex;flex-direction:column}
+.logo-main{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--verde);letter-spacing:.06em;line-height:1.1}
+.logo-sub{font-size:.54rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-soft);font-weight:300}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--verde)}
+.nav-btn{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:.5rem 1.3rem;border:1px solid var(--verde);color:var(--verde);background:transparent;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s;border-radius:2px}
+.nav-btn:hover{background:var(--verde);color:var(--crema)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:7rem 3.5rem 4rem;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--crema2) 0%,var(--crema) 50%,var(--crema3) 100%)}
+.hero-texture{position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px, rgba(27,58,45,0.04) 1px, transparent 0);background-size:28px 28px;pointer-events:none}
+.hero-blob{position:absolute;right:-5rem;top:50%;transform:translateY(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(47,97,72,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-stroke{position:absolute;left:0;top:15%;bottom:15%;width:3px;background:linear-gradient(to bottom,transparent,var(--verde3) 30%,var(--acento) 65%,transparent);opacity:.4}
+.hero-content{position:relative;z-index:1;max-width:620px}
+.eyebrow{font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--verde3);margin-bottom:1.3rem;display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:'';display:inline-block;width:26px;height:1px;background:var(--verde3)}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5.2vw,4.8rem);font-weight:600;line-height:1.07;color:var(--verde);margin-bottom:1.5rem}
+h1 em{font-style:italic;color:var(--verde3)}
+.hero-desc{font-size:.95rem;line-height:1.88;color:var(--text-mid);max-width:460px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn-p{padding:.82rem 2.1rem;background:var(--verde);color:var(--crema);font-family:'Outfit',sans-serif;font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s;border-radius:2px}
+.btn-p:hover{background:var(--verde2)}
+.btn-g{padding:.82rem 2.1rem;background:transparent;color:var(--verde);font-family:'Outfit',sans-serif;font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--border-dark);cursor:pointer;transition:all .2s;border-radius:2px}
+.btn-g:hover{border-color:var(--verde);background:rgba(27,58,45,.06)}
+.hero-badges{display:flex;gap:.9rem;margin-top:2rem;flex-wrap:wrap}
+.badge{background:rgba(27,58,45,.07);border:1px solid rgba(27,58,45,.12);padding:.42rem .95rem;font-size:.67rem;color:var(--text-mid);letter-spacing:.06em;border-radius:20px}
+.hero-logo-img{position:absolute;right:5rem;top:50%;transform:translateY(-50%);width:350px;height:350px;border-radius:50%;object-fit:cover;opacity:.12;pointer-events:none}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--verde);padding:2rem 3.5rem;gap:1rem}
+.stat{text-align:center}
+.stat-n{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:600;color:var(--crema);line-height:1;margin-bottom:.3rem}
+.stat-l{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,232,208,.5)}
+
+/* SECTIONS light */
+section{padding:5rem 3.5rem;background:var(--crema2)}
+section.alt{background:var(--crema)}
+.tag{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--verde3);margin-bottom:.85rem;display:flex;align-items:center;gap:.55rem}
+.tag::before{content:'';width:16px;height:1px;background:var(--acento)}
+h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,2.8vw,2.6rem);font-weight:600;line-height:1.2;color:var(--verde);margin-bottom:1.1rem}
+.desc{font-size:.88rem;line-height:1.9;color:var(--text-mid);max-width:500px}
+
+/* SOBRE */
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center}
+.sobre-visual{position:relative;display:flex;justify-content:center}
+.sobre-img-wrap{position:relative}
+.sobre-img-wrap img{width:100%;max-width:300px;border-radius:50%;object-fit:cover;border:3px solid var(--crema3);box-shadow:0 8px 40px rgba(27,58,45,0.12);display:block}
+.sobre-chip{position:absolute;bottom:-1rem;right:-1rem;background:var(--verde);padding:1rem 1.2rem;text-align:center;border-radius:3px}
+.sc-n{font-size:1.6rem;line-height:1}
+.sc-t{font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,232,208,.75);font-weight:600}
+.sobre-list{list-style:none;margin-top:1.6rem}
+.sobre-list li{display:flex;gap:.65rem;align-items:flex-start;padding:.75rem 0;border-bottom:1px solid var(--border);font-size:.84rem;color:var(--text-mid);line-height:1.6}
+.sobre-list li span{color:var(--acento2);flex-shrink:0;margin-top:.1em;font-size:.85rem}
+
+/* RAZA */
+.raza-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.8rem}
+.raza-card{background:var(--crema2);border:1px solid var(--border);padding:2rem 1.8rem;transition:all .3s;cursor:default;border-radius:4px}
+.raza-card:hover{border-color:var(--verde3);box-shadow:0 4px 20px rgba(27,58,45,0.08)}
+.rc-icon{font-size:2rem;margin-bottom:.9rem;line-height:1}
+.rc-title{font-size:.92rem;font-weight:600;color:var(--verde);margin-bottom:.5rem}
+.rc-desc{font-size:.8rem;line-height:1.75;color:var(--text-soft)}
+
+/* COLORES */
+.colores-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem}
+.color-card{background:var(--crema2);border:1px solid var(--border);padding:1.7rem;display:flex;gap:1.2rem;align-items:center;transition:all .25s;border-radius:4px}
+.color-card:hover{border-color:var(--verde3);box-shadow:0 4px 16px rgba(27,58,45,0.07)}
+.color-dot{width:50px;height:50px;border-radius:50%;flex-shrink:0;border:2px solid rgba(27,58,45,.1)}
+.color-info h4{font-size:.9rem;font-weight:600;color:var(--verde);margin-bottom:.22rem}
+.color-info p{font-size:.78rem;color:var(--text-soft);line-height:1.6}
+
+/* CACHORROS */
+.cachorros-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.cachorro-card{background:var(--crema2);border:1px solid var(--border);overflow:hidden;transition:all .3s;border-radius:4px}
+.cachorro-card:hover{border-color:var(--verde3);transform:translateY(-3px);box-shadow:0 8px 24px rgba(27,58,45,0.1)}
+.cc-img{background:var(--crema3);aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:4.5rem;border-bottom:1px solid var(--border)}
+.cc-body{padding:1.3rem}
+.cc-badge{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--verde3);margin-bottom:.4rem}
+.cc-name{font-size:.95rem;font-weight:500;color:var(--verde);margin-bottom:.22rem}
+.cc-detail{font-size:.78rem;color:var(--text-soft)}
+.cc-status{display:inline-block;margin-top:.8rem;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;padding:.28rem .72rem;border:.5px solid;border-radius:20px}
+.disponible{color:#2a7a50;border-color:rgba(42,122,80,.3);background:rgba(42,122,80,.07)}
+.reservado{color:#a0622a;border-color:rgba(160,98,42,.3);background:rgba(160,98,42,.07)}
+
+/* PROCESO */
+.proceso-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.8rem}
+.step{padding:2rem 1.5rem;background:var(--crema);border:1px solid var(--border);text-align:center;border-radius:4px;transition:all .3s}
+.step:hover{border-color:var(--verde3);box-shadow:0 4px 16px rgba(27,58,45,0.07)}
+.step-n{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:400;color:rgba(27,58,45,0.1);line-height:1;margin-bottom:.8rem}
+.step-icon{font-size:1.9rem;margin-bottom:.75rem}
+.step-t{font-size:.88rem;font-weight:600;color:var(--verde);margin-bottom:.45rem}
+.step-d{font-size:.78rem;line-height:1.7;color:var(--text-soft)}
+
+/* CTA */
+.cta-banner{background:var(--verde);padding:3.5rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+.cta-t{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.2vw,2rem);font-weight:600;color:var(--crema);line-height:1.25;max-width:520px}
+.cta-t em{font-style:italic;color:var(--acento)}
+.cta-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn-crema{padding:.8rem 2rem;background:var(--crema);color:var(--verde);font-family:'Outfit',sans-serif;font-size:.73rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s;border-radius:2px}
+.btn-crema:hover{background:var(--crema2)}
+.btn-outline-crema{padding:.8rem 2rem;background:transparent;color:var(--crema);font-family:'Outfit',sans-serif;font-size:.73rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(240,232,208,.4);cursor:pointer;transition:all .2s;border-radius:2px;text-decoration:none;display:inline-block}
+.btn-outline-crema:hover{border-color:var(--crema);background:rgba(240,232,208,.07)}
+
+/* FOOTER */
+footer{background:var(--verde);border-top:1px solid rgba(240,232,208,.1);padding:2.2rem 3.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.2rem}
+.f-brand{display:flex;align-items:center;gap:.65rem}
+.f-brand img{width:34px;height:34px;border-radius:50%;object-fit:cover;opacity:.8;border:1px solid rgba(240,232,208,.2)}
+.f-logo-t{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--crema);opacity:.85;letter-spacing:.06em}
+.f-logo-sub{font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,232,208,.35);font-family:'Outfit',sans-serif}
+.f-links{display:flex;gap:1.6rem}
+.f-links a{font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,232,208,.35);text-decoration:none;transition:color .2s}
+.f-links a:hover{color:var(--crema)}
+.f-copy{font-size:.67rem;color:rgba(240,232,208,.25)}
+
+@media(max-width:700px){
+  nav{padding:1rem 1.2rem}.nav-links{display:none}
+  .hero{padding:6rem 1.2rem 3rem}.hero-logo-img{display:none}
+  .stats{grid-template-columns:repeat(2,1fr);padding:1.5rem 1.2rem}
+  section{padding:3.5rem 1.2rem}
+  .sobre-grid,.colores-grid{grid-template-columns:1fr}
+  .raza-grid,.cachorros-grid{grid-template-columns:1fr 1fr}
+  .proceso-steps{grid-template-columns:1fr 1fr}
+  .cta-banner{padding:2.2rem 1.2rem}
+  footer{padding:1.8rem 1.2rem;flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#">
+    <img src="data:image/jpeg;base64,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" alt="Aussies Paradise Logo">
+    <div class="logo-text">
+      <span class="logo-main">Aussies Paradise</span>
+      <span class="logo-sub">Criadero Canino · Est. 22 · Ecuador</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Nosotros</a></li>
+    <li><a href="#raza">La Raza</a></li>
+    <li><a href="#cachorros">Cachorros</a></li>
+    <li><a href="#proceso">Adoptar</a></li>
+  </ul>
+  <button class="nav-btn">Contáctanos</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-blob"></div>
+  <div class="hero-stroke"></div>
+  <img class="hero-logo-img" src="data:image/jpeg;base64,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" alt="">
+  <div class="hero-content">
+    <p class="eyebrow">Criadero Canino · Ecuador · Est. 2022</p>
+    <h1>El <em>Australian<br>Shepherd</em><br>más feliz<br>del Ecuador</h1>
+    <p class="hero-desc">En Aussies Paradise criamos Pastores Ovejeros Australianos con amor, dedicación y responsabilidad. Cada cachorro nace y crece en familia, listo para ser parte de la tuya.</p>
+    <div class="hero-btns">
+      <button class="btn-p">Ver cachorros disponibles</button>
+      <button class="btn-g">Conocer más</button>
+    </div>
+    <div class="hero-badges">
+      <div class="badge">✓ Pedigree garantizado</div>
+      <div class="badge">✓ Vacunados y desparasitados</div>
+      <div class="badge">✓ Criados en hogar</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Raza pura</div></div>
+  <div class="stat"><div class="stat-n">Pedigree</div><div class="stat-l">Internacional</div></div>
+  <div class="stat"><div class="stat-n">Est. 22</div><div class="stat-l">Desde 2022</div></div>
+  <div class="stat"><div class="stat-n">🇪🇨</div><div class="stat-l">Ecuador</div></div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-visual">
+      <div class="sobre-img-wrap">
+        <img src="data:image/jpeg;base64,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" alt="Aussies Paradise Logo">
+        <div class="sobre-chip">
+          <div class="sc-n">🐾</div>
+          <div class="sc-t">Con amor</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="tag">Quiénes somos</p>
+      <h2>Un criadero que nace del amor</h2>
+      <p class="desc">Somos Aussies Paradise, un criadero familiar ecuatoriano especializado en Pastor Ovejero Australiano. Cada Aussie crece en un ambiente de hogar, con amor y socialización desde el primer día.</p>
+      <ul class="sobre-list">
+        <li><span>✦</span>Cachorros socializados en ambiente familiar desde recién nacidos</li>
+        <li><span>✦</span>Pedigree y documentación internacional en regla</li>
+        <li><span>✦</span>Vacunación y desparasitación completa antes de la entrega</li>
+        <li><span>✦</span>Asesoría y acompañamiento personalizado para el nuevo dueño</li>
+        <li><span>✦</span>Padres con temperamento equilibrado y salud certificada</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- RAZA -->
+<section id="raza" class="alt">
+  <p class="tag">Pastor Ovejero Australiano</p>
+  <h2>¿Por qué un Aussie?</h2>
+  <p class="desc">Una raza extraordinaria, conocida por su inteligencia, lealtad y energía. Perfecta para familias activas que buscan un compañero de vida excepcional.</p>
+  <div class="raza-grid">
+    <div class="raza-card"><div class="rc-icon">🧠</div><h3 class="rc-title">Inteligencia superior</h3><p class="rc-desc">Una de las razas más inteligentes del mundo. Aprenden rápido y disfrutan de los desafíos mentales.</p></div>
+    <div class="raza-card"><div class="rc-icon">❤️</div><h3 class="rc-title">Leales y afectuosos</h3><p class="rc-desc">Forman vínculos profundos con su familia. Son protectores, cariñosos y siempre presentes.</p></div>
+    <div class="raza-card"><div class="rc-icon">⚡</div><h3 class="rc-title">Energía y agilidad</h3><p class="rc-desc">Activos y ágiles, perfectos para familias con estilo de vida dinámico y amor por el aire libre.</p></div>
+    <div class="raza-card"><div class="rc-icon">🎨</div><h3 class="rc-title">Pelaje único</h3><p class="rc-desc">4 variedades: Blue Merle, Red Merle, Black Tri y Red Tri. Cada uno completamente irrepetible.</p></div>
+    <div class="raza-card"><div class="rc-icon">🤝</div><h3 class="rc-title">Sociables</h3><p class="rc-desc">Con buena socialización se llevan bien con niños, otros perros y mascotas del hogar.</p></div>
+    <div class="raza-card"><div class="rc-icon">🏆</div><h3 class="rc-title">Versátiles</h3><p class="rc-desc">Destacan en obediencia, agility y como compañeros de vida. Su adaptabilidad es increíble.</p></div>
+  </div>
+</section>
+
+<!-- COLORES -->
+<section>
+  <p class="tag">Variedades de color</p>
+  <h2>Colores disponibles</h2>
+  <div class="colores-grid">
+    <div class="color-card">
+      <div class="color-dot" style="background:radial-gradient(circle at 38% 32%,#8ec0db,#3d7a9e 45%,#1c4a63)"></div>
+      <div class="color-info"><h4>Blue Merle</h4><p>Gris plateado con manchas negras y toques cobrizos. El más icónico, cada ejemplar es único.</p></div>
+    </div>
+    <div class="color-card">
+      <div class="color-dot" style="background:radial-gradient(circle at 38% 32%,#d9a87c,#a8633e 45%,#6e3820)"></div>
+      <div class="color-info"><h4>Red Merle</h4><p>Tonos rojizos y crema con manchas características. De gran belleza y rareza.</p></div>
+    </div>
+    <div class="color-card">
+      <div class="color-dot" style="background:radial-gradient(circle at 38% 32%,#4e4e60,#22222e 50%,#111118)"></div>
+      <div class="color-info"><h4>Black Tri</h4><p>Negro intenso con marcas blancas y cobrizas perfectamente definidas. Elegante y majestuoso.</p></div>
+    </div>
+    <div class="color-card">
+      <div class="color-dot" style="background:radial-gradient(circle at 38% 32%,#c97c50,#8b4428 50%,#5a2810)"></div>
+      <div class="color-info"><h4>Red Tri</h4><p>Rojo cálido con marcas blancas y cobrizas. Una combinación cálida y llamativa.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CACHORROS -->
+<section id="cachorros" class="alt">
+  <p class="tag">Camada actual</p>
+  <h2>Cachorros disponibles</h2>
+  <p class="desc">Nuestros cachorros salen listos: vacunados, desparasitados, microchipados y con pedigree.</p>
+  <div class="cachorros-grid">
+    <div class="cachorro-card">
+      <div class="cc-img">🐶</div>
+      <div class="cc-body">
+        <div class="cc-badge">Blue Merle · Macho</div>
+        <div class="cc-name">Cachorro #1</div>
+        <div class="cc-detail">8 semanas · Ojos azules</div>
+        <div class="cc-status disponible">Disponible</div>
+      </div>
+    </div>
+    <div class="cachorro-card">
+      <div class="cc-img">🐾</div>
+      <div class="cc-body">
+        <div class="cc-badge">Red Merle · Hembra</div>
+        <div class="cc-name">Cachorro #2</div>
+        <div class="cc-detail">8 semanas · Ojos bicolor</div>
+        <div class="cc-status reservado">Reservado</div>
+      </div>
+    </div>
+    <div class="cachorro-card">
+      <div class="cc-img">🐕</div>
+      <div class="cc-body">
+        <div class="cc-badge">Black Tri · Macho</div>
+        <div class="cc-name">Cachorro #3</div>
+        <div class="cc-detail">8 semanas · Muy sociable</div>
+        <div class="cc-status disponible">Disponible</div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:.8rem;color:var(--text-soft);margin-top:1.5rem">📸 Síguenos en <a href="https://www.instagram.com/aussies.ec" target="_blank" style="color:var(--verde);text-decoration:none;font-weight:600">@aussies.ec</a> para ver las fotos más recientes</p>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso">
+  <p class="tag">¿Cómo adoptar?</p>
+  <h2>Proceso de adopción</h2>
+  <div class="proceso-steps">
+    <div class="step"><div class="step-n">01</div><div class="step-icon">💬</div><h3 class="step-t">Contáctanos</h3><p class="step-d">Escríbenos por Instagram o WhatsApp. Resolvemos todas tus dudas con gusto.</p></div>
+    <div class="step"><div class="step-n">02</div><div class="step-icon">🤝</div><h3 class="step-t">Reserva</h3><p class="step-d">Con un depósito aseguras tu cachorro. Te enviamos fotos y videos de su crecimiento.</p></div>
+    <div class="step"><div class="step-n">03</div><div class="step-icon">💉</div><h3 class="step-t">Preparación</h3><p class="step-d">Vacunas, desparasitación y revisión veterinaria completa antes de la entrega.</p></div>
+    <div class="step"><div class="step-n">04</div><div class="step-icon">🏡</div><h3 class="step-t">¡Bienvenido!</h3><p class="step-d">Entrega con cartilla de salud, kit de inicio y asesoría continua para los primeros meses.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <div class="cta-t">¿Listo para conocer a tu <em>Aussie</em> favorito?</div>
+  <div class="cta-btns">
+    <button class="btn-crema">💬 WhatsApp</button>
+    <a href="https://www.instagram.com/aussies.ec" target="_blank" class="btn-outline-crema">📸 @aussies.ec</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand">
+    <img src="data:image/jpeg;base64,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" alt="Aussies Paradise">
+    <div>
+      <div class="f-logo-t">Aussies Paradise</div>
+      <div class="f-logo-sub">Criadero Canino · Ecuador · Est. 2022</div>
+    </div>
+  </div>
+  <div class="f-links">
+    <a href="#">Inicio</a>
+    <a href="#">La Raza</a>
+    <a href="#">Cachorros</a>
+    <a href="#">Adoptar</a>
+    <a href="https://www.instagram.com/aussies.ec" target="_blank">Instagram</a>
+  </div>
+  <div class="f-copy">© 2026 Aussies Paradise Ecuador</div>
+</footer>
+
+</body>
+</html>
